@@ -1,0 +1,79 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfgantt}
+\usepackage{tikz}
+\tikzset{every picture/.style={/utils/exec={\sffamily}}}
+\title{Gantt Charts with the pgfgantt Package}
+\begin{document}
+
+%
+% A fairly complicated example from section 2.9 of the package
+% documentation. This reproduces an example from Wikipedia:
+% http://en.wikipedia.org/wiki/Gantt_chart
+%
+\definecolor{background_light}{RGB}{238, 234, 221}
+\definecolor{background_dark}{RGB}{79,82,83}
+\definecolor{milestone_color_incomplete}{RGB}{97, 142, 98}
+\definecolor{line_grey}{RGB}{200, 200, 200}
+\definecolor{small_bar_color}{RGB}{200,200,200}
+\definecolor{milestone_color_complete}{RGB}{159, 92, 122}
+\definecolor{bright_red}{RGB}{253,71,52}
+\begin{ganttchart}[
+    canvas/.append style={fill=background_light, draw=line_grey, line width=.005pt},
+    hgrid style/.style={draw=line_grey, line width=.005pt},
+    vgrid={*1{draw=line_grey, line width=.005pt}},
+    today=4,
+    today rule/.style={
+      draw=bright_red,
+      dash pattern=on 3.5pt off 4.5pt,
+      line width=2.5pt
+    },
+    today label font=\small\bfseries,
+    title/.style={draw=none, fill=none},
+    title label font=\bfseries\footnotesize,
+    title label node/.append style={below=7pt},
+    include title in canvas=false,
+    bar label font=\mdseries\small\color{background_dark},
+    bar label node/.append style={left=0cm},
+    bar/.append style={draw=none, fill=small_bar_color},
+    group incomplete/.append style={fill=milestone_color_incomplete},
+    group left shift=0,
+    group right shift=0,
+    group height=.5,
+    group peaks tip position=0,
+    group label node/.append style={left=.6cm},
+    group progress label style=none,
+    group/.append style={draw=background_dark, fill=milestone_color_complete},
+  ]{1}{16}
+  \gantttitle[
+    title label node/.append style={below left=7pt and -3pt}
+  ]{Quarter:\quad1}{1}
+  \gantttitlelist{2,...,16}{1} \\
+  \ganttgroup[progress=100]{Year 1}{1}{4} \\
+  \ganttbar[
+    name=prob
+  ]{qui graecis erroribus inciderint}{1}{1} \\
+  \ganttbar[
+    name=RL
+  ]{Nisl primis persequeris}{2}{2} \\
+  \ganttbar{Lorem ipsum dolor sit ame}{1}{4} \\
+  \ganttbar{Hinc deserunt electram mei in}{2}{3} \\
+  \ganttbar{at augue iisque pro}{3}{3} \\
+  \ganttbar{Offendit percipit praesent}{3}{3} \\
+  \ganttbar{pri vidit option ei}{4}{4} \\[grid]
+  \ganttgroup[progress=0]{Year 2}{5}{8} \\
+  \ganttbar{Per putant apeirian contentiones}{5}{6} \\
+  \ganttbar{saperet offendit eos cu}{5}{8} \\
+  \ganttbar{Sed ne modo numquam appellantur}{5}{5} \\
+  \ganttbar{Quot quaeque concludaturque}{6}{6} \\
+  \ganttbar{no oportere gloriatur usu}{6}{8} \\
+  \ganttbar{Ea movet utamur vel}{8}{8} \\[grid]
+  \ganttgroup[progress=0]{Year 3/4}{9}{16} \\
+  \ganttbar{Quot quaeque concludaturque}{9}{12} \\
+  \ganttbar{Sed ne modo numquam appellantur}{11}{14} \\
+  \ganttbar{Quot quaeque concludaturque}{12}{12} \\
+  \ganttbar{pri vidit option ei}{13}{13} \\
+  \ganttbar{Offendit percipit praesent}{13}{16} \\
+  \ganttbar{Ea movet utamur vel}{14}{15} \\
+  \ganttbar{pri vidit option ei}{13}{16} 
+\end{ganttchart}
+\end{document}

@@ -3,4 +3,4 @@ I adopted this latex gantt chart example: https://www.overleaf.com/latex/example
 to have gruvbox colors. I also changed some fonts and other styling bits. 
 I found it useful for planning projects. See example below. 
 
-![alt text](https://github.com/self-supervisor/gruvbox-gantt-charts-with-pgfgantt/blob/main/main.pdf)
+![alt text](https://github.com/self-supervisor/gruvbox-gantt-charts-with-pgfgantt/blob/main/main.pdf?raw=true)
